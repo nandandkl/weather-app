@@ -45,12 +45,10 @@ Weather-App
 git clone https://github.com/nandandkl/weather-app.git
 cd weather-app
 ```
-2. Open index.html in your browser.
-3. API Key Configuration: Replace the OPENWEATHER_KEY in main.js with your own OpenWeatherMap API key.
+2. Configure your API key
 ```
 const OPENWEATHER_KEY = "YOUR_API_KEY_HERE";
 ```
-4. Host locally: You can use VSCode Live Server or any local HTTP server for a better experience.
 
 
 ## 🤝 Contributing
