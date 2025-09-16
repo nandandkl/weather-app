@@ -1,4 +1,4 @@
-const OPENWEATHER_KEY = "1da15065f32b5b53a33cf6b105e23a53";
+const OPENWEATHER_KEY = "YOUR_API_KEY_HERE";
 
 // Get current weather
 function fetchCurrentWeather(lat, lon) {
