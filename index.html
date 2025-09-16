@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- Added cache-busting parameter to force CSS reload -->
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+    <main class="main-container">
+        <div class="dashboard-container">
+            <header class="header">
+                <h1 class="header-title">Weather Dashboard</h1>
+                <p class="header-subtitle">Stay updated with current weather conditions</p>
+            </header>
+
+            <div class="grid-container">
+                <!-- Main Weather Card -->
+                <div class="main-weather-card">
+                    <div class="weather-card-content">
+                        <div class="weather-header">
+                            <div class="location-info">
+                                <div class="location-pin">
+                                    <i data-lucide="map-pin" class="location-icon"></i>
+                                    <p id="city" class="location-text">New York, NY</p>
+                                </div>
+                                <h2 class="day-title">Friday</h2>
+                                <p class="date-text">September 08, 2025</p>
+                            </div>
+                            <div class="sun-times">
+                                <div class="sunrise-card">
+                                    <div class="sun-time-header">
+                                        <i data-lucide="sunrise" class="sunrise-icon"></i>
+                                        <p class="sun-time-label">Sunrise</p>
+                                    </div>
+                                    <p class="sun-time-value">6:42 AM</p>
+                                </div>
+                                <div class="sunset-card">
+                                    <div class="sun-time-header">
+                                        <i data-lucide="sunset" class="sunset-icon"></i>
+                                        <p class="sun-time-label">Sunset</p>
+                                    </div>
+                                    <p class="sun-time-value">7:28 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="weather-main">
+                            <p class="weather-condition">Partly Cloudy</p>
+                            <div class="weather-icon-container">
+                                <i data-lucide="cloud" class="weather-icon-main"></i>
+                            </div>
+                            <h3 class="temperature-main">22°</h3>
+                            <p class="feels-like">Feels like 25°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Highlights -->
+                <div class="highlights-card">
+                    <h3 class="highlights-title search-title">Search Bar</h3>
+                    <div class="search-container">
+
+                        <i data-lucide="map-pinned" class="icon location-iconn"></i>
+                        
+                        <input 
+                            type="text" 
+                            class="search-bar" 
+                            placeholder="Search for places..."
+                            onkeypress="handleSearch(event)"
+                        >
+                        <i data-lucide="search" class="icon search-icon" onclick="triggerSearch()"></i>
+
+                    </div>
+                    <h3 class="highlights-title">Today's Highlights</h3>
+                    <div class="highlights-grid">
+                        <div class="highlight-item clouds">
+                            <div class="highlight-header">
+                                <i data-lucide="cloud" class="highlight-icon"></i>
+                                <p class="highlight-label">Clouds</p>
+                            </div>
+                            <p class="highlight-value">24</p>
+                            <p class="highlight-description">percentage (%)</p>
+                        </div>
+
+                        <div class="highlight-item rain">
+                            <div class="highlight-header">
+                                <i data-lucide="cloud-drizzle" class="highlight-icon"></i>
+                                <p class="highlight-label">Rain</p>
+                            </div>
+                            <p class="highlight-value">1.25</p>
+                            <p class="highlight-description">millimeter (mm)</p>
+                        </div>
+
+                        <div class="highlight-item wind">
+                            <div class="highlight-header">
+                                <i data-lucide="wind" class="highlight-icon"></i>
+                                <p class="highlight-label">Wind</p>
+                            </div>
+                            <p class="highlight-value">15</p>
+                            <p class="highlight-description">kilometer per hour (km/h)</p>
+                        </div>
+
+                        <div class="highlight-item humidity">
+                            <div class="highlight-header">
+                                <i data-lucide="droplets" class="highlight-icon"></i>
+                                <p class="highlight-label">Humidity</p>
+                            </div>
+                            <p class="highlight-value">68</p>
+                            <p class="highlight-description">percentage (%)</p>
+                        </div>
+
+                        <div class="highlight-item visibility">
+                            <div class="highlight-header">
+                                <i data-lucide="eye" class="highlight-icon"></i>
+                                <p class="highlight-label">Visibility</p>
+                            </div>
+                            <p class="highlight-value">5</p>
+                            <p class="highlight-description">kilometer (km)</p>
+                        </div>
+
+                        <div class="highlight-item pressure">
+                            <div class="highlight-header">
+                                <i data-lucide="thermometer" class="highlight-icon"></i>
+                                <p class="highlight-label">Pressure</p>
+                            </div>
+                            <p class="highlight-value">1000</p>
+                            <p class="highlight-description">hectopascal (hPa)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weekly Forecast -->
+                <div class="forecast-card">
+                    <div class="forecast-header">
+                        <h3 class="forecast-title">6-Day Forecast</h3>
+                        <p class="forecast-subtitle">This week</p>
+                    </div>
+                    <div class="forecast-grid">
+                        <div class="forecast-day" data-day="tue">
+                            <p class="forecast-day-name">Tue</p>
+                            <p class="forecast-date">13</p>
+                            <i data-lucide="sun" class="forecast-icon sunny"></i>
+                            <p class="forecast-temp">25°</p>
+                            <div class="forecast-range">
+                                <span>28°</span>
+                                <span>/</span>
+                                <span>20°</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast-day" data-day="wed">
+                            <p class="forecast-day-name">Wed</p>
+                            <p class="forecast-date">14</p>
+                            <i data-lucide="cloud-rain" class="forecast-icon rainy"></i>
+                            <p class="forecast-temp">19°</p>
+                            <div class="forecast-range">
+                                <span>22°</span>
+                                <span>/</span>
+                                <span>16°</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast-day" data-day="thu">
+                            <p class="forecast-day-name">Thu</p>
+                            <p class="forecast-date">15</p>
+                            <i data-lucide="sun" class="forecast-icon sunny"></i>
+                            <p class="forecast-temp">27°</p>
+                            <div class="forecast-range">
+                                <span>30°</span>
+                                <span>/</span>
+                                <span>22°</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast-day" data-day="fri">
+                            <p class="forecast-day-name">Fri</p>
+                            <p class="forecast-date">16</p>
+                            <i data-lucide="zap" class="forecast-icon stormy"></i>
+                            <p class="forecast-temp">21°</p>
+                            <div class="forecast-range">
+                                <span>24°</span>
+                                <span>/</span>
+                                <span>18°</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast-day" data-day="sat">
+                            <p class="forecast-day-name">Sat</p>
+                            <p class="forecast-date">17</p>
+                            <i data-lucide="cloud-snow" class="forecast-icon snowy"></i>
+                            <p class="forecast-temp">16°</p>
+                            <div class="forecast-range">
+                                <span>18°</span>
+                                <span>/</span>
+                                <span>12°</span>
+                            </div>
+                        </div>
+
+                        <div class="forecast-day" data-day="sun">
+                            <p class="forecast-day-name">Sun</p>
+                            <p class="forecast-date">18</p>
+                            <i data-lucide="sun" class="forecast-icon sunny"></i>
+                            <p class="forecast-temp">24°</p>
+                            <div class="forecast-range">
+                                <span>27°</span>
+                                <span>/</span>
+                                <span>19°</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Cities -->
+                <div class="cities-card">
+                    <div class="cities-header">
+                        <h3 class="cities-title">Other Cities</h3>
+                        <i data-lucide="navigation" class="cities-nav-icon"></i>
+                    </div>
+                    <div class="cities-grid">
+                        <div class="city-item london">
+                            <div class="city-header">
+                                <div class="city-location">
+                                    <i data-lucide="map-pin" class="city-pin"></i>
+                                    <div class="city-info">
+                                        <p class="city-name">London</p>
+                                        <p class="city-country">UK</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="cloud" class="city-weather-icon cloudy"></i>
+                            </div>
+                            <div class="city-details">
+                                <div class="city-temp-row">
+                                    <p class="city-temp">15°</p>
+                                    <p class="city-condition">Cloudy</p>
+                                </div>
+                                <div class="city-humidity-row">
+                                    <span>Humidity</span>
+                                    <span class="humidity-value">78%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="city-item tokyo">
+                            <div class="city-header">
+                                <div class="city-location">
+                                    <i data-lucide="map-pin" class="city-pin"></i>
+                                    <div class="city-info">
+                                        <p class="city-name">Tokyo</p>
+                                        <p class="city-country">Japan</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="sun" class="city-weather-icon sunny"></i>
+                            </div>
+                            <div class="city-details">
+                                <div class="city-temp-row">
+                                    <p class="city-temp">23°</p>
+                                    <p class="city-condition">Sunny</p>
+                                </div>
+                                <div class="city-humidity-row">
+                                    <span>Humidity</span>
+                                    <span class="humidity-value">45%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="city-item sydney">
+                            <div class="city-header">
+                                <div class="city-location">
+                                    <i data-lucide="map-pin" class="city-pin"></i>
+                                    <div class="city-info">
+                                        <p class="city-name">Sydney</p>
+                                        <p class="city-country">Australia</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="zap" class="city-weather-icon stormy"></i>
+                            </div>
+                            <div class="city-details">
+                                <div class="city-temp-row">
+                                    <p class="city-temp">26°</p>
+                                    <p class="city-condition">Stormy</p>
+                                </div>
+                                <div class="city-humidity-row">
+                                    <span>Humidity</span>
+                                    <span class="humidity-value">82%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="city-item paris">
+                            <div class="city-header">
+                                <div class="city-location">
+                                    <i data-lucide="map-pin" class="city-pin"></i>
+                                    <div class="city-info">
+                                        <p class="city-name">Paris</p>
+                                        <p class="city-country">France</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="cloud-rain" class="city-weather-icon rainy"></i>
+                            </div>
+                            <div class="city-details">
+                                <div class="city-temp-row">
+                                    <p class="city-temp">18°</p>
+                                    <p class="city-condition">Rainy</p>
+                                </div>
+                                <div class="city-humidity-row">
+                                    <span>Humidity</span>
+                                    <span class="humidity-value">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
