@@ -2,21 +2,15 @@
 
 A modern, responsive weather dashboard that provides real-time weather updates, 6-day forecasts, and highlights for various cities. The app uses the OpenWeatherMap API and features interactive UI elements powered by JavaScript and Lucide icons.
 
+
 ## ✨ Features
 
-Dashboard: Current city, temp, weather, sunrise & sunset 
-
-Highlights: Clouds, Rain, Wind, Humidity, Visibility, Pressure 
-
-6-Day Forecast: Daily temps & icons 
-
-Search: Find any city 
-
-Other Cities: Quick view & click to update 
-
-Location: Auto-detects your location 
-
-
+1. **Dashboard:** Current city, temp, weather, sunrise & sunset 
+2. **Highlights:** Clouds, Rain, Wind, Humidity, Visibility, Pressure 
+3. **6-Day Forecast:** Daily temps & icons 
+4. **Search:** Find any city 
+5. **Other Cities:** Quick view & click to update 
+6. **Location:** Auto-detects your location
 
 ## 🌐 Demo
 
@@ -31,32 +25,32 @@ Location: Auto-detects your location
 - **OpenWeatherMap API** – Fetch current weather and forecast data
 - **Lucide Icons** – Clean and consistent iconography
 
+
 ## 📁 Project Structure
 
+<pre>
 Weather-App
 ├── favicon.png
 ├── index.html
 ├── main.js
 ├── script.js
 └── styles.css
+</pre>
+
 
 ##  📦 Installation & Usage
 
-1. **Clone the repository**  
+1. Clone the repository
 ```
 git clone https://github.com/nandandkl/weather-app.git
 cd weather-app
 ```
-
 2. Open index.html in your browser.
-
-3. API Key Configuration
-   Replace the OPENWEATHER_KEY in main.js with your own OpenWeatherMap API key:
+3. API Key Configuration: Replace the OPENWEATHER_KEY in main.js with your own OpenWeatherMap API key.
 ```
 const OPENWEATHER_KEY = "YOUR_API_KEY_HERE";
 ```
-4. Optional: Host locally
-   You can use VSCode Live Server or any local HTTP server for a better experience.
+4. Host locally: You can use VSCode Live Server or any local HTTP server for a better experience.
 
 
 ## 🤝 Contributing
