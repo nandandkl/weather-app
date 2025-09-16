@@ -45,7 +45,7 @@ Weather-App
 git clone https://github.com/nandandkl/weather-app.git
 cd weather-app
 ```
-2. Configure your API key
+2. Configure API key
 ```
 const OPENWEATHER_KEY = "YOUR_API_KEY_HERE";
 ```
