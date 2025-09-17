@@ -3,6 +3,11 @@
 A modern, responsive weather dashboard that provides real-time weather updates, 6-day forecasts, and highlights for various cities. The app uses the OpenWeatherMap API and features interactive UI elements powered by JavaScript and Lucide icons.
 
 
+## 🌐 Demo
+
+Explore the web app by visiting [Weather App](https://nandandklweatherapp.netlify.app/) in your browser.
+
+
 ## ✨ Features
 
 1. **Dashboard:** Current city, temp, weather, sunrise & sunset 
@@ -11,10 +16,6 @@ A modern, responsive weather dashboard that provides real-time weather updates, 
 4. **Search:** Find any city 
 5. **Other Cities:** Quick view & click to update 
 6. **Location:** Auto-detects your location
-
-## 🌐 Demo
-
-Explore the web app by visiting [Weather App](https://nandandklweatherapp.netlify.app/) in your browser.
 
 
 ## 🛠️ Technologies Used
