@@ -14,7 +14,7 @@ A modern, responsive weather dashboard that provides real-time weather updates, 
 
 ## 🌐 Demo
 
-🔗 Explore the ask-clouds web app by visiting [Weather App](https://nandandklweatherapp.netlify.app/) in your browser.
+Explore the web app by visiting [Weather App](https://nandandklweatherapp.netlify.app/) in your browser.
 
 
 ## 🛠️ Technologies Used
